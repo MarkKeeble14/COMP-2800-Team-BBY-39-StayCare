@@ -12,6 +12,7 @@
     </head>
 
     <body>
+        <div id="blur">
         <header></header>
         <div id="featuredActivities">
             <h1 id="title">Featured Activities</h1>
@@ -56,7 +57,13 @@
                 </div>
             </div>
         </div>
-        <div class="profile-card">
+    </div>
+        <footer class="nav-down bounceInUp">
+                <img src="https://dummyimage.com/400x400/000/fff" alt="pic" id="profile" class="rounded-circle" onclick="toggle()">
+            <h1>Todd</h1>
+        </footer>
+
+        <div id="profile-card">
             <div class="image-container">
                 <img src="https://dummyimage.com/600x400/000/fff" alt="user-pic" width="100%">
                 <div class="title">
@@ -64,17 +71,41 @@
                 </div>
             </div>
             <div class="main-container">
-                <p><i class="fa fa-compass info"></i>Area</p>
-                <p><i class="fa fa-envelope-square info"></i>Email</p>
-                <p><i class="fa fa-phone info"></i>Phone Number</p>
-                <p><i class="fa fa-child info"></i>Children</p>
-                <hr>
+                <div class="textbox label">
+                    <i class="fa fa-compass info"></i>
+                    <input type="text" placeholder="Location">
+                </div>
+                <div class="textbox label">
+                    <i class="fa fa-envelope-square info"></i>
+                    <input type="text" placeholder="Email">
+                </div>
+                <div class="textbox label">
+                    <i class="fa fa-phone info"></i>
+                    <input type="text" placeholder="Phone Number">
+                </div>
+                <div class="textbox">
+                    <div class="label">
+                        <i class="fa fa-child info"></i>
+                        <p style="padding-left: 2%; margin-left: 2%;">Children</p>
+                    </div>
+                    <div id="child-container">
+                        <img src="https://dummyimage.com/400x400/000/fff" alt="pic" class="rounded-circle">
+                        <img src="https://dummyimage.com/400x400/000/fff" alt="pic" class="rounded-circle">
+                        <img src="https://dummyimage.com/400x400/000/fff" alt="pic" class="rounded-circle">
+                        
+                    </div>
+                </div>
             </div>
         </div>
-        <footer class="nav-down bounceInUp">
-            <img src="https://dummyimage.com/600x400/000/fff" alt="pic" class="rounded-circle" id="profile">
-            <h1>Todd</h1>
-        </footer>
+        <script>
+            function toggle() {
+                var blur = document.getElementById('blur');
+                blur.classList.toggle('active');
+
+                var profile = document.getElementById('profile-card');
+                profile.classList.toggle('active');
+            }
+        </script>
         <script src="./js/carouselController.js"></script>
         <script src="./js/footerAppearance.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
