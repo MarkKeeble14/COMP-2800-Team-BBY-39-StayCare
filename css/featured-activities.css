@@ -1,0 +1,28 @@
+#featuredActivities {
+    border: 1px solid black;
+    padding: 4%;
+}
+
+#title {
+    text-align: center;
+    font-size: 400%;
+    padding: 2%;
+}
+
+.caption {
+    display: grid;
+    grid-template-columns: 60% 40%;
+
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.caption h2 {
+    text-align: left;
+    font-size: 300%;
+}
+
+.caption h3 {
+    text-align: right;
+    font-size: 250%;
+}
