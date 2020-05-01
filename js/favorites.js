@@ -16,7 +16,7 @@ function display() {
 
     firebase.auth().onAuthStateChanged(function (user) {
 
-        db.collection("users").doc(user.uid)
+        storage.collection("users").doc(user.uid)
             .collection("favorites").get().then(function (snap) {
                 snap.forEach(function (doc) {
                     favorites.push(doc.data());
