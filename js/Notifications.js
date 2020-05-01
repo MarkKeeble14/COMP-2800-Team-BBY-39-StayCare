@@ -15,14 +15,14 @@ client.messages.create({
 
 
 //Further testing will be done once Firebase is set up
-/*
+
 var nodemailer = require('nodemailer');
 
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: '', //An email
-        pass: 'wodkad' //The password for that email
+        pass: '' //The password for that email
     }
 });
 
@@ -40,5 +40,5 @@ transporter.sendMail(mailOptions, function(error, info) {
         console.log('Email sent');
     }
 });
-*/
+
 
