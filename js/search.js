@@ -24,7 +24,7 @@ function getSearchResults(array) {
 
 
 function autocomplete(input, array) {
-  let currentFocus;
+  var currentFocus;
 
   input.addEventListener("input", function (e) {
     let val = this.value;
@@ -37,7 +37,7 @@ function autocomplete(input, array) {
     currentFocus = -1;
 
     let a = document.createElement("div");
-    //a.setAttribute("id", this.id + "autocomplete-list");
+    a.setAttribute("id", this.id + "autocomplete-list");
     a.setAttribute("class", "autocomplete-items");
 
     for (let i = 0; i < array.length; i++) {
@@ -65,9 +65,9 @@ function autocomplete(input, array) {
 
   /*execute a function presses a key on the keyboard:*/
   input.addEventListener("keydown", function (e) {
-    var x = document.getElementById(this.id + "autocomplete-list");
+    let x = document.getElementById(this.id + "autocomplete-list");
     if (x)
-      x = x.getElementsByTagName("div");
+        x = x.getElementsByTagName("div");
     if (e.keyCode == 40) {
       /*If the arrow DOWN key is pressed,
       increase the currentFocus variable:*/

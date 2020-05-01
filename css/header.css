@@ -29,12 +29,11 @@
   }
   .autocomplete-active {
     /*when navigating through the items using the arrow keys:*/
-    background-color: DodgerBlue !important;
-    color: #ffffff;
+    background-color: #b9b9b9 !important;
   }
 
   .bg-yellow {
-      background-color: #f9c803;
+      background-color: #ffd900;
   }
 
   .orange {
