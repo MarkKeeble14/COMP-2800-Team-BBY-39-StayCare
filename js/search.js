@@ -22,6 +22,10 @@ function getSearchResults(array) {
   }
 }
 
+function clearSearchResults() {
+    search = [];
+}
+
 
 function autocomplete(input, array) {
   var currentFocus;
