@@ -57,6 +57,7 @@ function refreshSearchResults() {
 
 document.getElementById("post-link").onclick = function () {
     clearForm();
+    hideElement("featuredActivities");
     showElement("post-form");
 }
 
