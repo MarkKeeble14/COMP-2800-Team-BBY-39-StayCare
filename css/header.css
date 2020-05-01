@@ -30,11 +30,10 @@
   .autocomplete-active {
     /*when navigating through the items using the arrow keys:*/
     background-color: DodgerBlue !important;
-    color: #ffffff;
   }
 
   .bg-yellow {
-      background-color: #f9c803;
+    background-color: #f9c803;
   }
 
   .orange {
