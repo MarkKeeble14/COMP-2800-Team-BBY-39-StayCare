@@ -1,11 +1,19 @@
 let photo = document.getElementById("image-container");
+let storageRef = storage.ref();
+let fileRef;
 
 document.getElementById("filetoRead").addEventListener("change",function(){
     let file = this.files[0];
+
+    console.log(file.name);
     
     if (file) {
         if ((file.type == 'image/png') || (file.type == 'image/jpg') || (file.type == 'image/jpeg')) {
-            
+        
+            fileRef = storageRef.child("Images/" + file.name);
+
+            uploadImage(file);
+
             let reader = new FileReader();
     
             reader.onload = function (e) {
@@ -24,3 +32,10 @@ document.getElementById("filetoRead").addEventListener("change",function(){
         }
     }
 }, false);
+
+
+function uploadImage(f) {
+    fileRef.put(f).then(function() {
+        console.log("uploaded file");
+    })
+}
