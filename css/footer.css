@@ -6,7 +6,7 @@ footer {
     background: #f5b335;
     text-align: center;
     font-size: 32px;
-    height: 100px;
+    height: 10vh;
     width: 100%;
     transition: all 0.35s ease-in-out;
     opacity: 1;
@@ -21,16 +21,16 @@ footer {
 }
 
 footer h1 {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
     text-align: right;
     padding: 2%;
 }
 
 #profile-pic {
-    transform: translate(-250%, -50%);
-    padding: 1%;
-    width: 150px;
-    height: 150px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    padding: 2%;
+    width: 10vh;
+    height: 10vh;
 }

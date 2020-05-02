@@ -39,19 +39,19 @@
 }
 
 .info {
-    padding-left: 2%;
+    margin: auto;
     color: #4b4fe2;
-    margin-right: 2%;
 }
 
 .label {
+    width: 100%;
     display: grid;
-    grid-template-columns: 10% auto;
+    grid-template-columns: 10% 90%;
 }
 
 .textbox {
-    width: 104%;
-    margin-left: -2%;
+    margin: auto;
+
     background-color: #fff;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.5);
     border: 1px solid black;
@@ -61,7 +61,7 @@
 
 .textbox i {
     text-align: center;
-    font-size: 56px;
+    font-size: 100%;
 }
 
 .textbox input {
@@ -74,11 +74,14 @@
 }
 
 .title h2 {
-    font-size: 72px;
-    color: #fff;
     position: absolute;
     left: 4%;
     bottom: 4%;
+}
+
+.title-text {
+    font-size: 10vw;
+    color: #fff;
 }
 
 #child-container {
@@ -88,6 +91,12 @@
 
 #child-container img {
     flex: 1;
+    padding: 5%;
+    width: 12.5%;
+}
+
+#name {
+    font-size: 36px;
+    text-align: right;
     padding: 2%;
-    width: 25%;
 }
