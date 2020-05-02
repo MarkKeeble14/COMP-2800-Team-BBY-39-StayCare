@@ -1,0 +1,36 @@
+footer {
+    border: 1px solid black;
+    position: fixed;
+    bottom: 0;
+
+    background: #f5b335;
+    text-align: center;
+    font-size: 32px;
+    height: 10vh;
+    width: 100%;
+    transition: all 0.35s ease-in-out;
+    opacity: 1;
+    z-index: 300;
+
+    display: block;
+}
+
+.nav-up {
+    opacity: 0.25;
+    bottom: -25%;
+}
+
+footer h1 {
+    text-align: right;
+    padding: 2%;
+}
+
+#profile-pic {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    padding: 2%;
+    width: 10vh;
+    height: 10vh;
+}

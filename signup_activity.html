@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <meta charset="UTF-8">
+    <head>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">  
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/signup_activity.css">
+    </head>
+
+    <body>
+        <!--This is just a temporary thing and can be added to the activities pages once those are completed-->
+        <button type="button" class="bounceInUp" onclick="toggle()">Sign Up!</button>
+
+        <div id="signupForm">
+
+            <form>
+                <div id="activityTitle">
+                    <h1>Activity</h1>
+                    <h2>Host Name</h2>
+                </div>
+                <h3>Time: </h3>
+                <h3>Date: </h3>
+
+                <br/>
+
+                <div id="childrenSignup">
+                    <h3>Which Children would you like to sign up?</h3>
+                    <input class="checkboxes" type="checkbox" id="ChildNames">
+                    <label for="ChildNames">Tim</label>
+                </div>
+
+                <br/>
+
+                <h3>Contact Method</h3>
+                <div id="contactMethod">
+                    <input class="checkboxes" type="checkbox" id="Email">
+                    <label for="Email">Email</label>
+                    <input class="checkboxes" type="checkbox" id="Text">
+                    <label for="Text">Text</label>
+                </div>
+
+                <br/>
+                <div id="register">
+                    <input id="signupSub" type="submit" value="Register">
+                </div>
+
+            </form>
+        </div>
+
+        <script src="./js/signup_activity.js"></script>
+    </body>
+
+
+
+
+</html>
+
+
