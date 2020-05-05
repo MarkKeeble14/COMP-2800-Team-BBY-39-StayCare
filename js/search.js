@@ -1,4 +1,4 @@
-let search = []
+let search = [];
 
 window.onload = getSearchResults(["activities"]);
 
@@ -14,11 +14,11 @@ function getActivities() {
 function getSearchResults(array) {
   for (let i = 0; i < array.length; i++) {
     db.collection(array[i]).get()
-    .then(function (snap) {
+    .then(function (snap) {      
       snap.forEach(function (doc) {
         search.push(doc.data().title);
       });
-    }).then(console.log(search))
+    })
   }
 }
 
