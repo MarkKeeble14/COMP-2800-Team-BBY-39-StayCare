@@ -58,6 +58,8 @@ function autocomplete(input, array) {
 
         b.addEventListener("click", function (e) {
           input.value = suggestion;
+          results = [array[i]];
+          searchButton.click();
           closeAllLists();
         })
 
@@ -87,8 +89,10 @@ function autocomplete(input, array) {
       if (currentFocus > -1) {
         // and simulate a click on the "active" item
         if (x) x[currentFocus].click();
+      } else {
+        searchButton.click();
       }
-      searchButton.click();
+      
       
     }
   });
@@ -140,8 +144,6 @@ function showSearchResults() {
   $("<h4 id='showingFor'>Showing search results for \"" + searchInput + "\"</h4>").appendTo("#searchResultsActivities");
   $("#showingFor").css("padding", "5%");
   results.forEach(result => showActivity(result));
-
-  document.getElementById("myInput").value = null;  
 
 }
 

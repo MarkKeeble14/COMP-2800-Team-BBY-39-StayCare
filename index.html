@@ -24,20 +24,15 @@
     <link rel="stylesheet" type="text/css" href="css/featured-activities.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" type="text/css" href="css/profile.css">
-    <link rel="stylesheet" type="text/css" href="css/search-results.css">
 
-    <style>
+    <!------------------For Firebase--------------------->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
 
-    </style>
-
-        <!------------------For Firebase--------------------->
-        <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-storage.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
-    
-        <script src="js/firebase.js"></script>
+    <script src="js/firebase.js"></script>
 
     <script src="js/featured-activities.js"></script>
 
@@ -73,7 +68,7 @@
 
                     <div class="autocomplete">
                         <input id="myInput" class="form-control mr-sm-2" type="text" placeholder="Search"
-                            aria-label="Search">
+                            aria-label="Search" onfocus="this.value=''">
                     </div>
 
                     <button id="searchButton" class="btn my-2 my-sm-0 orange" type="button" type="button" 
