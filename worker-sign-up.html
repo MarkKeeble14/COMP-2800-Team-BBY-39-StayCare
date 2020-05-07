@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <meta charset="UTF-8">
+    <head>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">  
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/signup_activity.css">
+    </head>
+
+    <body>
+        <!--This is just a temporary thing and can be added to the activities pages once those are completed-->
+        
+
+        <div id="signupForm" class="active">
+
+            <form id="workerReg">
+                <div id="activityTitle">
+                    <h1>Sign up to be one of our workers</h1>
+                    
+                </div>
+
+                <br/>
+
+                <p>Please submit a picture of your child care certification, your name, and email. 
+                    You will be notified if your application has been accepted or rejected. Thank you!
+                </p>
+
+                <br/>
+
+                <label>Name</label>
+                <input id="name" type="text" name="name">
+
+                <br/>
+
+                <label>Email</label>
+                <input id="email" type ="text" name="email">
+
+                <br/>
+
+                <label>Add your image</label>
+                <input type="file" id="img" name="img" accept="image/*">
+
+                <br/>
+                <div id="register">
+                    <input id="regSub" type="submit" value="Register">
+                </div>
+
+            </form>
+        </div>
+        
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+        <script src="./js/firebase.js"></script>
+        <script src="./js/workerReg.js"></script>
+    </body>
+
+
+
+
+</html>
+
+

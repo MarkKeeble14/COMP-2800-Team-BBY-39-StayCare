@@ -1,13 +1,12 @@
 var firebaseConfig = {
-    apiKey: "AIzaSyDLkAOfVmsw8ZEEhK8tro4OaptcGlmY3VA",
-    authDomain: "dayca-9d9f3.firebaseapp.com",
-    databaseURL: "https://dayca-9d9f3.firebaseio.com",
-    projectId: "dayca-9d9f3",
-    storageBucket: "dayca-9d9f3.appspot.com",
-    messagingSenderId: "330554646489",
-    appId: "1:330554646489:web:3ea2d0bbe8029d3a63c3c8",
-    measurementId: "G-2BRF7LMKN9"
-};
+    apiKey: "AIzaSyBQnQW_8MqyNDbKQO6C0qkbv75zDq99vMQ",
+    authDomain: "testingcare-bf176.firebaseapp.com",
+    databaseURL: "https://testingcare-bf176.firebaseio.com",
+    projectId: "testingcare-bf176",
+    storageBucket: "testingcare-bf176.appspot.com",
+    messagingSenderId: "202673724275",
+    appId: "1:202673724275:web:c6824492449f8b6158c306"
+  };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 //firebase.analytics();
