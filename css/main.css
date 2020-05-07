@@ -20,3 +20,11 @@ White: FFFDDD
 .padded {
     padding: 2%;
 }
+
+body {
+    font-family: "Fresca";
+}
+
+#searchResultsActivities {
+    display: none;
+}
