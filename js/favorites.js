@@ -79,7 +79,6 @@ function display() {
                         table.appendChild(tr);
                     }
                 })
-            document.body.appendChild(table2);
             document.body.appendChild(table);
         }
     })

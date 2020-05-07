@@ -87,8 +87,6 @@ function setupCanvas() {
 }
 
 function ChangeTool(toolClicked) {
-    document.getElementById("open").className = "";
-    document.getElementById("save").className = "";
     document.getElementById("brush").className = "";
     document.getElementById("line").className = "";
     document.getElementById("rectangle").className = "";
@@ -96,10 +94,27 @@ function ChangeTool(toolClicked) {
     document.getElementById("ellipse").className = "";
     document.getElementById("polygon").className = "";
     // Highlight the last selected tool on toolbar
-    document.getElementById(toolClicked).className = "selected";
+    document.getElementById(toolClicked).className = "toolSelected";
     // Change current tool used for drawing
     currentTool = toolClicked;
 }
+
+function ChangeColor(color) {
+    document.getElementById("black").className = "";
+    document.getElementById("white").className = "";
+    document.getElementById("red").className = "";
+    document.getElementById("yellow").className = "";
+    document.getElementById("green").className = "";
+    document.getElementById("blue").className = "";
+    document.getElementById("cyan").className = "";
+    document.getElementById("magenta").className = "";
+    // Highlight the last selected tool on toolbar
+    document.getElementById(color).className = "colorSelected";
+    // Change current color used for drawing
+    strokeColor = color;
+    fillColor = color;
+}
+
 // Returns mouse x & y position based on canvas position in page
 function GetMousePosition(x, y) {
     // Get canvas size and position in web page
@@ -219,28 +234,34 @@ function getPolygon() {
 
 // Called to draw the line
 function drawRubberbandShape(loc) {
-    ctx.strokeStyle = strokeColor;
-    ctx.fillStyle = fillColor;
     if (currentTool === "brush") {
         // Create paint brush
         DrawBrush();
     } else if (currentTool === "line") {
         // Draw Line
+        ctx.strokeStyle = strokeColor;
+        ctx.fillStyle = fillColor;
         ctx.beginPath();
         ctx.moveTo(mousedown.x, mousedown.y);
         ctx.lineTo(loc.x, loc.y);
         ctx.stroke();
     } else if (currentTool === "rectangle") {
         // Creates rectangles
+        ctx.strokeStyle = strokeColor;
+        ctx.fillStyle = fillColor;
         ctx.strokeRect(shapeBoundingBox.left, shapeBoundingBox.top, shapeBoundingBox.width, shapeBoundingBox.height);
     } else if (currentTool === "circle") {
         // Create circles
+        ctx.strokeStyle = strokeColor;
+        ctx.fillStyle = fillColor;
         let radius = shapeBoundingBox.width;
         ctx.beginPath();
         ctx.arc(mousedown.x, mousedown.y, radius, 0, Math.PI * 2);
         ctx.stroke();
     } else if (currentTool === "ellipse") {
         // Create ellipses
+        ctx.strokeStyle = strokeColor;
+        ctx.fillStyle = fillColor;
         // ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle)
         let radiusX = shapeBoundingBox.width / 2;
         let radiusY = shapeBoundingBox.height / 2;
@@ -249,6 +270,8 @@ function drawRubberbandShape(loc) {
         ctx.stroke();
     } else if (currentTool === "polygon") {
         // Create polygons
+        ctx.strokeStyle = strokeColor;
+        ctx.fillStyle = fillColor;
         getPolygon();
         ctx.stroke();
     }
@@ -276,7 +299,6 @@ function AddBrushPoint(x, y, mouseDown) {
 function DrawBrush() {
     for (let i = 1; i < brushXPoints.length; i++) {
         ctx.beginPath();
-
         // Check if the mouse button was down at this point
         // and if so continue drawing
         if (brushDownPos[i]) {
@@ -338,6 +360,8 @@ function ReactToMouseUp(e) {
     dragging = false;
     usingBrush = false;
 }
+
+
 
 // Saves the image in your default download directory
 function SaveImage() {
