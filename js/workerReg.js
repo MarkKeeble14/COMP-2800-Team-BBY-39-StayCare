@@ -1,37 +1,29 @@
-
-
-
 function toggle() {
     var signup = document.getElementById('signupForm');
     signup.classList.toggle('active');
 }
 
-var workerReg = firebase.database().ref('workerReg');
+let photo = document.getElementById("image-container");
+let storageRef = storage.ref();
+let fileRef;
+let file;
 
-//This is writing to the database
-document.getElementById('workerReg').addEventListener('submit', submitForm);
-
-function submitForm(e) {
-    e.preventDefault();
-    
-    var name = getInputVal('name');
-    var email = getInputVal('email');
-    var img = getInputVal('img');
-
-    saveReg(name, email, img);
-
+function uploadImage(file) {
+    fileRef.put(file).then(function() {
+        console.log("uploaded file");
+    })
 }
 
-function getInputVal(id) {
-    return document.getElementById(id).value;
-}
 
-//Saves to firebase
-function saveReg(name, email, img) {
-    var newWorkerReg = workerReg.push();
-    newWorkerReg.set({
-        name: name,
-        email: email,
-        img: img
+document.getElementById("regSub").onclick = function () {
+    if (file) {
+        uploadImage(file);
+    }
+    let name = document.getElementById("name");
+    let email = document.getElementById("email");
+    db.collection("workerRegistration").doc().set({
+        "name": name.value,
+        "email": email.value,
+        "image": "Images/" + file.name
     });
 }
