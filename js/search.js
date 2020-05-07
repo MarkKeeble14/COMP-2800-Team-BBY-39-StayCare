@@ -8,16 +8,16 @@ window.onload = getSearchResults(["activities"]);
 function getSearchResults(array) {
   for (let i = 0; i < array.length; i++) {
     db.collection(array[i]).get()
-    .then(function (snap) {      
-      snap.forEach(function (doc) {
-        search.push(doc);
-      });
-    })
+      .then(function (snap) {
+        snap.forEach(function (doc) {
+          search.push(doc);
+        });
+      })
   }
 }
 
 function clearSearchResults() {
-    search = [];
+  search = [];
 }
 
 
@@ -48,8 +48,8 @@ function autocomplete(input, array) {
 
       if (typed.toUpperCase() == val.toUpperCase()) {
 
-        this.parentNode.appendChild(a);      
-        
+        this.parentNode.appendChild(a);
+
         results.push(array[i]);
 
         let b = document.createElement("div");
@@ -72,7 +72,7 @@ function autocomplete(input, array) {
   input.addEventListener("keydown", function (e) {
     let x = document.getElementById(this.id + "autocomplete-list");
     if (x)
-        x = x.getElementsByTagName("div");
+      x = x.getElementsByTagName("div");
     if (e.keyCode == 40) {
       // If the arrow DOWN key is pressed, increase the currentFocus variable
       currentFocus++;
@@ -92,8 +92,8 @@ function autocomplete(input, array) {
       } else {
         searchButton.click();
       }
-      
-      
+
+
     }
   });
 
@@ -153,12 +153,54 @@ function showActivity(result) {
   $(resultId).css("width", "80%");
   $(resultId).css("margin", "5% auto");
   $(resultId).css("padding", "5%");
-  storageRef.child(result.data().image).getDownloadURL().then(function(url) {
+  storageRef.child(result.data().image).getDownloadURL().then(function (url) {
     $("<img class='card-img-top' src='" + url + "'></img>").prependTo(resultId);
   })
   $("<div class='card-body'></div>").appendTo(resultId);
-  
+
   $("<h4 class='card-title'>" + result.data().title + "</h4>").appendTo(resultId + " .card-body");
   $("<p class='card-text'>" + result.data().description + "</p>").appendTo(resultId + " .card-body");
 
+  let scheduledTime = getWrittenDate(result.data().time);
+  let timeHtml = "<p class='card-text'>Scheduled for: " + scheduledTime.time + " on " + scheduledTime.date + "</p>";
+  $(timeHtml).appendTo(resultId + " .card-body");
+
+  $("<p class='card-text'>Room Size: " + result.data().size + " spots</p>").appendTo(resultId + " .card-body");
+
 }
+
+
+function getWrittenDate(dateString) {
+
+
+  let hour = parseInt(dateString.substr(0, 1));
+  let ampm = "AM";
+  if (hour > 12) {
+    hour -= 12;
+    ampm = "PM";
+  }
+  let minutes = dateString.substr(3, 3);
+  let time = hour + ":" + minutes + " " + ampm;
+
+  let monthNum = parseInt(dateString.substr(6, 7));
+  const MONTHS = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+
+  let monthName = MONTHS[monthNum];
+
+  let day = parseInt(dateString.substr(9, 10));
+
+  let year = parseInt(dateString.substr(12, 15));
+
+  let date = monthName + " " + day + ", " + year;
+
+
+  return {
+    date: date,
+    time: time
+  }
+
+}
+
+getWrittenDate("15:40 05/14/2020");
