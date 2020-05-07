@@ -235,6 +235,8 @@ function getPolygon() {
 // Called to draw the line
 function drawRubberbandShape(loc) {
     if (currentTool === "brush") {
+        ctx.strokeStyle = strokeColor;
+        ctx.fillStyle = fillColor;
         // Create paint brush
         DrawBrush();
     } else if (currentTool === "line") {
@@ -307,7 +309,7 @@ function DrawBrush() {
             ctx.moveTo(brushXPoints[i] - 1, brushYPoints[i]);
         }
         ctx.lineTo(brushXPoints[i], brushYPoints[i]);
-        ctx.closePath();
+        //ctx.closePath();
         ctx.stroke();
     }
 }
@@ -362,7 +364,6 @@ function ReactToMouseUp(e) {
 }
 
 
-
 // Saves the image in your default download directory
 function SaveImage() {
     // Get a reference to the link element 
@@ -371,15 +372,4 @@ function SaveImage() {
     imageFile.setAttribute('download', 'image.png');
     // Reference the image in canvas for download
     imageFile.setAttribute('href', canvas.toDataURL());
-}
-
-function OpenImage() {
-    let img = new Image();
-    // Once the image is loaded clear the canvas and draw it
-    img.onload = function () {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(img, 0, 0);
-    }
-    img.src = 'image.png';
-
 }
