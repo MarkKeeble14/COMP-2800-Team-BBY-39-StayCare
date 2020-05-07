@@ -24,6 +24,7 @@
     <link rel="stylesheet" type="text/css" href="css/featured-activities.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" type="text/css" href="css/profile.css">
+    <link rel="stylesheet" type="text/css" href="css/worker-sign-up.css">
 
 </head>
 
@@ -51,6 +52,13 @@
                             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
                             class="nav-link">Post Activity</a>
                     </li>
+                    <li class="nav-item" id="worker-link">
+                        <a type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                            class="nav-link" href="#">Become a worker!</a>
+                    </li>
+
+                    
                 </ul>
 
                 <form id="searchForm" class="form-inline my-2 my-lg-0" autocomplete="off">
@@ -183,7 +191,26 @@
         </div>
     </div>
 
-    <!---------------------------Footer-------------------------->
+    <div id="worker-registration-form">
+        <h3>In order to post activities, you must be a registered child care worker</h3>
+        <p>Please provide a picture proving your child care license</p>
+        <input type="file" id="workerImg">
+        <div id="worker-img-container"><label for="workerImg"></label></div>
+        <form>
+            <div class="form-group">
+                <label for="activityName">Your Full Name</label>
+                <input type="text" class="form-control" id="worker-name">
+            </div>
+            <div class="form-group">
+                <label for="description">Your Email Address</label>
+                <textarea class="form-control" id="worker-email"></textarea>
+            </div>
+            <input type="button" id="worker-post" value="Register Now!" class="btn btn-outline-success my-2 my-sm-0">
+            
+        </form>        
+    </div>
+</div>
+
     <footer class="nav-down bounceInUp">
         <img src="https://dummyimage.com/400x400/000/fff" alt="pic" id="profile-pic" class="rounded-circle"
             onclick="toggle()">
@@ -254,7 +281,8 @@
     <script src="js/carousel-controller.js"></script>
     <script src="js/footer-appearance.js"></script>
     <script src="js/post.js"></script>
-    
+    <script src="js/adminChecker.js"></script>
+    <script src="js/workerReg.js"></script>
 </body>
 
 </html>
