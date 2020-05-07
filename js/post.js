@@ -58,7 +58,15 @@ function refreshSearchResults() {
 document.getElementById("post-link").onclick = function () {
     clearForm();
     hideElement("featuredActivities");
+    hideElement("worker-registration-form");
     showElement("post-form");
+}
+
+document.getElementById("worker-link").onclick = function () {
+    clearForm();
+    hideElement("featuredActivities");
+    hideElement("post-form");
+    showElement("worker-registration-form");
 }
 
 function clearForm() {

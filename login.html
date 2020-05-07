@@ -95,7 +95,7 @@
                         db.collection("users").doc(user.uid).set({
                                 name: user.displayName,
                                 email: user.email,
-                                boolean: isWoker = false
+                                isWorker: boolean = false
                             }).then(function () {
                                 console.log("New user added to firestore");
                                 window.location.assign("index.html");

@@ -1,5 +1,5 @@
-#workerRegistrationForm {
-    
+#worker-registration-form {
+    display: none;
     margin: auto;
     margin-top: 10px;
     width: 90%;
@@ -31,9 +31,6 @@
     height: 100%;
 }
 
-#description {
-    height: 200px;
-}
 
 #filetoRead {
     display: none;

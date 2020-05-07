@@ -20,7 +20,10 @@ post.addEventListener('click', function() {
             console.log(worker);
 
             if (worker == false) {
-                location.replace("worker-sign-up.html");
+                clearForm();
+                hideElement("featuredActivities");
+                hideElement("post-form");
+                showElement("worker-registration-form");
             }
         });
     })
