@@ -162,6 +162,13 @@ document.getElementById("post-link").onclick = function () {
     $("#searchResultsActivities").hide();
 }
 
+document.getElementById("worker-link").onclick = function () {
+    clearForm();
+    hideElement("featuredActivities");
+    hideElement("post-form");
+    showElement("worker-registration-form");
+}
+
 function clearForm() {
     photo.style.backgroundImage = "url('images/img_placeholder.png')";
     document.getElementById("activityName").value = "";
