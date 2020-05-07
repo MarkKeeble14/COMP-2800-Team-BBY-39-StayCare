@@ -6,15 +6,27 @@ function getActivities() {
         snap.forEach(function (doc) {
             activityDocs.push(doc);
         });
-    }).then(function () {
-        console.log(activityDocs[0].id)        
-    })  
+    }).then(function () {  
+        showFeaturedActivities();      
+    })
 }
 
-//getActivities();
+function showFeaturedActivities() {
+    for (let i = 0; i < 5; i++) {
+        let id = "#featured" + (i + 1);
+        let data = activityDocs[i].data();
+        let path = data.image;
+        storageRef.child(path).getDownloadURL().then(function(url) {
+            $(id + " img").attr("src", url);
+            $(id + " .activityInfo .title").text(data.title);
+            $(id + " .activityInfo .description").text(data.description);
+        }).catch(function(error) {
+            console.log("error getting download url");
+        });
+    }
+}
 
 
-/*
-for (let i = 1; i <= 5; i++) {
-    $(("featured" + i) > img).attr("src", "first.jpg")
-}*/
+
+getActivities();
+
