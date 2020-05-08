@@ -27,6 +27,7 @@ let brushYPoints = new Array();
 // Stores whether mouse is down
 let brushDownPos = new Array();
 
+
 // Stores size data used to create rubber band shapes
 // that will redraw as the user moves the mouse
 class ShapeBoundingBox {
@@ -235,8 +236,6 @@ function getPolygon() {
 // Called to draw the line
 function drawRubberbandShape(loc) {
     if (currentTool === "brush") {
-        ctx.strokeStyle = strokeColor;
-        ctx.fillStyle = fillColor;
         // Create paint brush
         DrawBrush();
     } else if (currentTool === "line") {
@@ -301,6 +300,8 @@ function AddBrushPoint(x, y, mouseDown) {
 function DrawBrush() {
     for (let i = 1; i < brushXPoints.length; i++) {
         ctx.beginPath();
+        ctx.strokeStyle = strokeColor;
+        ctx.fillStyle = fillColor;
         // Check if the mouse button was down at this point
         // and if so continue drawing
         if (brushDownPos[i]) {
@@ -309,8 +310,8 @@ function DrawBrush() {
             ctx.moveTo(brushXPoints[i] - 1, brushYPoints[i]);
         }
         ctx.lineTo(brushXPoints[i], brushYPoints[i]);
-        //ctx.closePath();
         ctx.stroke();
+        ctx.closePath();
     }
 }
 
