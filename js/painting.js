@@ -77,8 +77,6 @@ function setupCanvas() {
     canvas = document.getElementById('my-canvas');
     // Get methods for manipulating the canvas
     ctx = canvas.getContext('2d');
-    ctx.strokeStyle = strokeColor;
-    ctx.lineWidth = line_Width;
     // Execute ReactToMouseDown when the mouse is clicked
     canvas.addEventListener("mousedown", ReactToMouseDown);
     // Execute ReactToMouseMove when the mouse is clicked
@@ -298,10 +296,10 @@ function AddBrushPoint(x, y, mouseDown) {
 
 // Cycle through all brush points and connect them with lines
 function DrawBrush() {
+    ctx.beginPath();
+    ctx.strokeStyle = strokeColor;
+    ctx.fillStyle = fillColor;
     for (let i = 1; i < brushXPoints.length; i++) {
-        ctx.beginPath();
-        ctx.strokeStyle = strokeColor;
-        ctx.fillStyle = fillColor;
         // Check if the mouse button was down at this point
         // and if so continue drawing
         if (brushDownPos[i]) {
@@ -311,8 +309,8 @@ function DrawBrush() {
         }
         ctx.lineTo(brushXPoints[i], brushYPoints[i]);
         ctx.stroke();
-        ctx.closePath();
     }
+    ctx.closePath();
 }
 
 function ReactToMouseDown(e) {
