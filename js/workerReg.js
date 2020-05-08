@@ -1,7 +1,8 @@
-function toggle() {
+// was making an error (profile-pic image onclick='toggle()' calls this function)
+/*function toggle() {
     var signup = document.getElementById('signupForm');
     signup.classList.toggle('active');
-}
+}*/
 
 let registration = document.getElementById("worker-img-container");
 let storageReference = storage.ref();
@@ -9,6 +10,7 @@ let fileRefererence;
 let newfile;
 let fullfilepath;
 
+//uploadImage function is already defined on post.js
 /*
 function uploadImage(newfile) {
     fileReference.put(newfile).then(function() {
@@ -22,7 +24,7 @@ document.getElementById("workerImg").addEventListener("change",function(){
     if (newfile) {
         //if the file chosen is an image
         if ((newfile.type == 'image/png') || (newfile.type == 'image/jpg') || (newfile.type == 'image/jpeg')) {       
-            fullfilepath = "Images/activities/" + postId + newfile.name;
+            fullfilepath = "Images/certificates/" + postId + newfile.name;
             fileReference = storageReference.child(fullfilepath);
 
             let reader = new FileReader();
@@ -51,10 +53,43 @@ document.getElementById("worker-post").onclick = function () {
     const MESSAGE = {
         IMAGE: "Please add an image.", 
         NAME: "Please add your name.",
-        ENAIL: "Please add you email."
+        EMAIL: "Please add a valid email."
     }
 
     let shouldipost = true;
+
+    if (!newfile) {
+        $("#imageError").remove();
+        $("<p id='imageError'>" +   MESSAGE.IMAGE + "</p>").insertAfter("#workerImg");
+        $("#imageError").css("color", "red");
+        $("#imageError").css("font-size", "80%");
+
+        shouldipost = false;
+    } else {
+        $("#imageError").remove();
+    }
+
+    if (!workerName || workerName === "") {
+        $("#titleError").remove();
+        $("<p id='titleError'>" + MESSAGE.NAME + "</p>").insertAfter("#worker-name");
+        $("#titleError").css("color", "red");
+        $("#titleError").css("font-size", "80%");
+
+        shouldipost = false;
+    } else {
+        $("#titleError").remove();
+    }
+
+    if (!workerEmail || workerEmail === "" || !workerEmail.includes("@") || !workerEmail.includes(".")) {
+        $("#emailError").remove();
+        $("<p id='emailError'>" + MESSAGE.EMAIL + "</p>").insertAfter("#worker-email");
+        $("#emailError").css("color", "red");
+        $("#emailError").css("font-size", "80%");
+
+        shouldipost = false;
+    } else {
+        $("#emailError").remove();
+    }
 
     if (shouldipost) {
         db.collection("workerRegistration").doc(postId).set({
@@ -67,7 +102,7 @@ document.getElementById("worker-post").onclick = function () {
                 uploadImage(newfile, fileReference);        
             }
             refreshSearchResults();
-            $("#post-form").hide();
+            $("#worker-registration-form").hide();
             $("#featuredActivities").show();
         });        
     } else {
