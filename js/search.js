@@ -187,7 +187,7 @@ function getWrittenDate(dateString) {
     "July", "August", "September", "October", "November", "December"
   ];
 
-  let monthName = MONTHS[monthNum];
+  let monthName = MONTHS[monthNum - 1];
 
   let day = parseInt(dateString.substr(9, 10));
 

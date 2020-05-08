@@ -13,8 +13,8 @@ let newPostId = function () {
 };
 let postId = newPostId();
 
-function uploadImage(file) {
-    fileRef.put(file).then(function() {
+function uploadImage(file, ref) {
+    ref.put(file).then(function() {
         console.log("uploaded file");
     })
 }
@@ -134,7 +134,7 @@ document.getElementById("post").onclick = function () {
             "size": maxOccupants
         }).then(function () {
             if (file) {
-                uploadImage(file);        
+                uploadImage(file, fileRef);        
             }
             refreshSearchResults();
             $("#post-form").hide();

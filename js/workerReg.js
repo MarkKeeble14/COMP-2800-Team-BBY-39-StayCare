@@ -9,11 +9,12 @@ let fileRefererence;
 let newfile;
 let fullfilepath;
 
+/*
 function uploadImage(newfile) {
     fileReference.put(newfile).then(function() {
         console.log("uploaded file");
     })
-}
+}*/
 
 document.getElementById("workerImg").addEventListener("change",function(){
     newfile = this.files[0];
@@ -63,7 +64,7 @@ document.getElementById("worker-post").onclick = function () {
 
         }).then(function () {
             if (newfile) {
-                uploadImage(newfile);        
+                uploadImage(newfile, fileReference);        
             }
             refreshSearchResults();
             $("#post-form").hide();
