@@ -13,8 +13,8 @@ let newPostId = function () {
 };
 let postId = newPostId();
 
-function uploadImage(file) {
-    fileRef.put(file).then(function() {
+function uploadImage(file, ref) {
+    ref.put(file).then(function() {
         console.log("uploaded file");
     })
 }
@@ -134,7 +134,7 @@ document.getElementById("post").onclick = function () {
             "size": maxOccupants
         }).then(function () {
             if (file) {
-                uploadImage(file);        
+                uploadImage(file, fileRef);        
             }
             refreshSearchResults();
             $("#post-form").hide();
@@ -160,6 +160,13 @@ document.getElementById("post-link").onclick = function () {
     $("#featuredActivities").hide();
     $("#post-form").show();
     $("#searchResultsActivities").hide();
+}
+
+document.getElementById("worker-link").onclick = function () {
+    clearForm();
+    hideElement("featuredActivities");
+    hideElement("post-form");
+    showElement("worker-registration-form");
 }
 
 function clearForm() {
