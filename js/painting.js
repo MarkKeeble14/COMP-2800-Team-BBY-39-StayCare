@@ -296,9 +296,9 @@ function AddBrushPoint(x, y, mouseDown) {
 
 // Cycle through all brush points and connect them with lines
 function DrawBrush() {
-    ctx.beginPath();
     ctx.strokeStyle = strokeColor;
     ctx.fillStyle = fillColor;
+    ctx.beginPath();
     for (let i = 1; i < brushXPoints.length; i++) {
         // Check if the mouse button was down at this point
         // and if so continue drawing
@@ -336,7 +336,6 @@ function ReactToMouseDown(e) {
 function ReactToMouseMove(e) {
     canvas.style.cursor = "crosshair";
     loc = GetMousePosition(e.clientX, e.clientY);
-
     // If using brush tool and dragging store each point
     if (currentTool === 'brush' && dragging && usingBrush) {
         // Throw away brush drawings that occur outside of the canvas
@@ -345,11 +344,9 @@ function ReactToMouseMove(e) {
         }
         RedrawCanvasImage();
         DrawBrush();
-    } else {
-        if (dragging) {
-            RedrawCanvasImage();
-            UpdateRubberbandOnMove(loc);
-        }
+    } else if (dragging) {
+        RedrawCanvasImage();
+        UpdateRubberbandOnMove(loc);
     }
 };
 
@@ -360,6 +357,8 @@ function ReactToMouseUp(e) {
     UpdateRubberbandOnMove(loc);
     dragging = false;
     usingBrush = false;
+    brushXPoints = [];
+    brushYPoints = [];
 }
 
 
