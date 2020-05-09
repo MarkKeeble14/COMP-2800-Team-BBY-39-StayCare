@@ -1,0 +1,72 @@
+.wrapper {
+    max-width: 70vw;
+    margin: auto;
+    font-family: "Arial";
+}
+
+.toolbar {
+    display: grid;
+    width: 100%;
+    background-color: #444444;
+    overflow: auto;
+    grid-template-areas:
+    "brush line rectangle circle ellipse polygon";
+}
+
+.colorbar {
+    display: grid;
+    width: 100%;
+    background-color: #444444;
+    overflow: hidden;
+    grid-template-areas: 
+    "black red green blue"
+    "white yellow magenta cyan";
+}
+
+.toolbar a {
+    float: left;
+    width: 11vw;
+    text-align: center;
+    padding: 6px 5px;
+    transition: all 0.5s ease;
+    color: white;
+}
+
+.colorbar a {
+    float: left;
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+/* Change color on hover */
+.toolbar a:hover, .toolSelected {
+    background-color: #000;
+}
+
+/* Change color on selected icon */
+.colorbar a:hover, .colorSelected {
+    border: 2px dotted #000;
+}
+
+#my-canvas {
+    width: 100%;
+    border: 3px solid #000000;
+}
+
+#img-data-div {
+    width: 100%;
+    max-width: 70vw;
+    height: 1vh;
+}
+
+/* Resize images to container */
+.toolbar a img, .colorbar a img {
+    max-width: 100%;
+    height: auto;
+}
+
+.colorbar a img {
+    width: 20vw;
+    height: 20vh;
+    padding: 2px;
+}
