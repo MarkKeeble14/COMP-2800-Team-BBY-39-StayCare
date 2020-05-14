@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Room Name</title>
+
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">  
+        <link rel="stylesheet" href="css/main.css">
+        
+        <link rel="stylesheet" type="text/css" href="css/room.css">
+        <link rel="stylesheet" type="text/css" href="css/header.css">
+        <link rel="stylesheet" type="text/css" href="css/footer.css">
+        <link rel="stylesheet" type="text/css" href="css/profile.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <div id="blur">
+            <nav class="navbar navbar-expand-lg navbar-light bg-yellow w-shadow">
+                <a class="navbar-brand" href="header.html">StayCare</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+        
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="my_activities.html">My Activities</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="profile.html">Profile</a>
+                        </li>
+                    </ul>
+        
+                    <form class="form-inline my-2 my-lg-0" autocomplete="off">
+        
+                        <div class="autocomplete">
+                            <input id="myInput" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                        </div>
+                        
+                        <button class="btn btn-outline-success my-2 my-sm-0 orange" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+            <div class="content">
+                <button onclick="switchDisplay()">Hello</button>
+                <div id="room-info">
+                    <h1 class="room-name">Room Name</h1>
+                    <h3 class="room-activity">Room Activity</h3>
+                </div>
+                <div id="stream-container" class="config-one">
+                    <div class="frame padded">
+                        <img src="https://dummyimage.com/600x400/000/fff" alt="stream">
+                    </div>
+                    <div class="frame padded">
+                        <img src="https://dummyimage.com/600x400/000/fff" alt="stream">
+                    </div>
+                    <div class="frame padded">
+                        <img src="https://dummyimage.com/600x400/000/fff" alt="stream">
+                    </div>
+                    <div class="frame padded">
+                        <img src="https://dummyimage.com/600x400/000/fff" alt="stream">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="nav-down bounceInUp">
+                <img src="https://dummyimage.com/400x400/000/fff" alt="pic" id="profile-pic" class="rounded-circle" onclick="toggle()">
+            <h1>Todd</h1>
+        </footer>
+        <div id="profile-card">
+            <div class="image-container">
+                <img src="https://dummyimage.com/600x400/000/fff" alt="user-pic" width="100%">
+                <div class="title">
+                    <h2>John Doe</h2>
+                </div>
+            </div>
+            <div class="main-container">
+                <div class="textbox label">
+                    <i class="fa fa-compass info"></i>
+                    <input type="text" placeholder="Location">
+                </div>
+                <div class="textbox label">
+                    <i class="fa fa-envelope-square info"></i>
+                    <input type="text" placeholder="Email">
+                </div>
+                <div class="textbox label">
+                    <i class="fa fa-phone info"></i>
+                    <input type="text" placeholder="Phone Number">
+                </div>
+                <div class="textbox">
+                    <div class="label">
+                        <i class="fa fa-child info"></i>
+                        <p style="padding-left: 2%; margin-left: 2%;">Children</p>
+                    </div>
+                    <div id="child-container">
+                        <img src="https://dummyimage.com/400x400/000/fff" alt="pic" class="rounded-circle">
+                        <img src="https://dummyimage.com/400x400/000/fff" alt="pic" class="rounded-circle">
+                        <img src="https://dummyimage.com/400x400/000/fff" alt="pic" class="rounded-circle">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./js/switch-display-config.js"></script>
+        <script src="./js/profile-blur-toggle.js"></script>
+        <script src="./js/carousel-controller.js"></script>
+        <script src="./js/footer-appearance.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
+        <script src="js/firebase.js"></script>
+    </body>
+</html>

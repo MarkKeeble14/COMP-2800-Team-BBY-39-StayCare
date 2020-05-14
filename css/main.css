@@ -1,6 +1,30 @@
-.booth {
-    width: 400px;
-    background: blue;
-    border: 10px solid gray;
-    margin: 0 auto;
+/* Colors
+Yellow: #F9C80E
+Orange: #F86624
+Light Blue: 06AED5
+Darker Blue: 086788
+White: FFFDDD
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.border {
+    border: 1px solid black;
+}
+
+.padded {
+    padding: 2%;
+}
+
+body {
+    font-family: "Fresca";
+}
+
+#searchResultsActivities {
+    display: none;
 }
