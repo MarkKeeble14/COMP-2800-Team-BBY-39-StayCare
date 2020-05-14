@@ -24,7 +24,7 @@ document.getElementById("signUp").onclick = function () {
                 console.log(user.uid); //Confirm user
                 users.doc(user.uid)
                     .collection("myActivities")
-                    .add(myActivities[0]);
+                    .add(myActivities[0]); //This one is finger painting
             }
 
         })
