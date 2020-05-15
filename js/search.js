@@ -167,6 +167,25 @@ function showActivity(result) {
 
   $("<p class='card-text'>Room Size: " + result.data().size + " spots</p>").appendTo(resultId + " .card-body");
 
+  $("<button id='signUpButton'>Sign Up</button>").appendTo(resultId + " .card-body");
+
+  function signUp() {
+    document.getElementById("signUpButton").onclick = function () {
+      firebase.auth().onAuthStateChanged(function (user) {
+
+        if (user) {
+          db.collection("users").doc(user.uid)
+            .update({
+              myActivities: firebase.firestore.FieldValue.arrayUnion(result.data()) //Add the result object to "my activities" database
+            });
+        }
+
+      })
+    }
+  }
+
+  signUp();
+
 }
 
 
